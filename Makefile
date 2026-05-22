@@ -18,7 +18,7 @@ $(TARGET).bin: $(TARGET).elf
 	$(OBJCOPY) -O binary $< $@
 
 flash: $(TARGET).bin
-	st-flash write $< 0x08000000
+	st-flash --reset write $< 0x08000000
 
 clean:
 	rm -f $(OBJS) $(TARGET).elf $(TARGET).bin
